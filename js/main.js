@@ -19,6 +19,7 @@
     initHero();
     initScrollReveal();
     initOverlay();
+    initAccordions();
     initFooter();
   });
 
@@ -309,6 +310,18 @@
       $('#overlay-video-wrap').innerHTML = '';
       $('#overlay-extended').innerHTML = '';
     }, 350);
+  }
+
+  // ─── ACCORDIONS ─────────────────────────────────────────────────
+  function initAccordions() {
+    $$('.about-accordion-trigger').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var accordion = btn.closest('.about-accordion');
+        var isOpen = accordion.classList.contains('is-open');
+        accordion.classList.toggle('is-open', !isOpen);
+        btn.setAttribute('aria-expanded', String(!isOpen));
+      });
+    });
   }
 
   // ─── FOOTER ─────────────────────────────────────────────────────

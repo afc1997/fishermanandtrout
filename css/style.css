@@ -348,12 +348,50 @@ button { background: none; border: none; cursor: none; color: inherit; font: inh
 }
 
 
-/* ─── PRESS ────────────────────────────────────────────────────── */
-.press-section {
-  padding: clamp(40px, 6vh, 72px) var(--gutter);
+/* ─── ABOUT ACCORDIONS ─────────────────────────────────────────── */
+.about-accordion {
   border-top: 1px solid var(--border);
+  margin-top: clamp(36px, 5vw, 56px);
 }
 
+.about-accordion-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: clamp(14px, 1.8vw, 20px) 0;
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+.about-accordion-trigger:hover { color: var(--fg); }
+
+.accordion-icon::before { content: '+'; }
+.about-accordion.is-open .accordion-icon::before { content: '−'; }
+
+.about-accordion-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s var(--ease);
+}
+.about-accordion.is-open .about-accordion-body {
+  grid-template-rows: 1fr;
+}
+
+.about-accordion-inner {
+  overflow: hidden;
+  padding-bottom: 0;
+  transition: padding-bottom 0.45s var(--ease);
+}
+.about-accordion.is-open .about-accordion-inner {
+  padding-bottom: clamp(24px, 3vw, 40px);
+}
+
+
+/* ─── PRESS ────────────────────────────────────────────────────── */
 .press-list {
   display: flex;
   flex-direction: column;
@@ -367,7 +405,6 @@ button { background: none; border: none; cursor: none; color: inherit; font: inh
   padding: clamp(13px, 1.6vw, 18px) 0;
   border-bottom: 1px solid var(--border);
 }
-.press-row:first-child { border-top: 1px solid var(--border); }
 
 .press-pub-wrap {
   display: flex;
@@ -412,11 +449,6 @@ button { background: none; border: none; cursor: none; color: inherit; font: inh
 
 
 /* ─── AWARDS ───────────────────────────────────────────────────── */
-.awards-section {
-  padding: clamp(40px, 6vh, 72px) var(--gutter);
-  border-top: 1px solid var(--border);
-}
-
 .awards-list {
   display: flex;
   flex-direction: column;
@@ -429,7 +461,6 @@ button { background: none; border: none; cursor: none; color: inherit; font: inh
   padding: clamp(14px, 1.8vw, 22px) 0;
   border-bottom: 1px solid var(--border);
 }
-.awards-group:first-child { border-top: 1px solid var(--border); }
 
 .awards-year {
   font-family: var(--mono);
