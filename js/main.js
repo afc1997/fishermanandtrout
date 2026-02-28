@@ -19,7 +19,7 @@
     initHero();
     initScrollReveal();
     initOverlay();
-    initAccordions();
+    initPressToggle();
     initFooter();
   });
 
@@ -312,16 +312,34 @@
     }, 350);
   }
 
-  // ─── ACCORDIONS ─────────────────────────────────────────────────
-  function initAccordions() {
-    $$('.about-accordion-trigger').forEach(function (btn) {
-      btn.addEventListener('click', function () {
-        var accordion = btn.closest('.about-accordion');
-        var isOpen = accordion.classList.contains('is-open');
-        accordion.classList.toggle('is-open', !isOpen);
-        btn.setAttribute('aria-expanded', String(!isOpen));
-      });
+  // ─── PRESS / AWARDS TOGGLE ──────────────────────────────────────
+  function makeToggle(btnId, listId) {
+    var btn  = $('#' + btnId);
+    var list = $('#' + listId);
+    if (!btn || !list) return;
+    var open = false;
+    btn.addEventListener('click', function () {
+      open = !open;
+      if (open) {
+        list.style.overflow = 'hidden';
+        var h = list.scrollHeight;
+        gsap.fromTo(list,
+          { height: 0, marginTop: 0 },
+          { height: h, marginTop: 20, duration: 0.5, ease: 'power3.inOut',
+            onComplete: function () { list.style.height = 'auto'; list.style.overflow = 'visible'; } }
+        );
+        btn.textContent = '− View less';
+      } else {
+        list.style.overflow = 'hidden';
+        gsap.to(list, { height: 0, marginTop: 0, duration: 0.4, ease: 'power3.inOut' });
+        btn.textContent = '+ View more';
+      }
     });
+  }
+
+  function initPressToggle() {
+    makeToggle('press-more-btn',  'press-more-list');
+    makeToggle('awards-more-btn', 'awards-more-list');
   }
 
   // ─── FOOTER ─────────────────────────────────────────────────────
