@@ -152,6 +152,64 @@
     });
   }
 
+  // ─── FILM DATA ──────────────────────────────────────────────────
+  var filmData = {
+    pika: {
+      synopsis: 'A desperate man wakes up with an unbearable itch, anxious to find a cure, he embarks on a nightmarish odyssey in search of relief. Screener available upon request.',
+      statement: [
+        'With ¡PIKA! (The Itch), I wanted to make a movie that would make the audience uncomfortable; to immerse the viewer in a place that feels like another world. To make an epic, unpredictable journey that would make viewers feel just as devastated as our main character.',
+        'My biggest inspiration for the film was how anxiety feels in my body, and the moment where that intense fear can lead to paralysis. I\'m making fun of myself with this movie. It\'s exposing some of my most absurd and cowardly traits and putting them into a nightmarish journey.',
+        'Originally, Trout (Trout Cohen, Writer/Producer) wrote a script about a man with an itch on his chest. His script stuck with me and years later, as I slipped into a depressive hole, I realized it was the perfect metaphor to describe what I was going through.',
+        'Inspired by films like The Trial, Good Time, Fight Club, and Beau Is Afraid, we wanted to craft a nightmarish world — in ours, even the smallest errand becomes an impossible hurdle. Together with our department heads we designed spaces for the viewer to feel gross, dirty, and surreal.',
+        'This is an epic story contained in a short form film.',
+      ],
+      credits: [
+        { role: 'Directed by',        name: 'Alex Fischman Cárdenas' },
+        { role: 'Written by',         name: 'Trout Cohen' },
+        { role: 'Produced by',        name: 'Morella Moret, Etienne Talbot, Alex Fischman Cárdenas, Trout Cohen' },
+        { role: 'Cinematography',     name: 'Mika Altskan' },
+        { role: 'Production Design',  name: 'Renzo Bazan' },
+        { role: 'Edit',               name: 'Ben Schwaeber' },
+        { role: 'Music',              name: 'Daniel Brandt, Paulo Gallo' },
+        { role: 'Sound Design',       name: 'Nikolay Antonov' },
+      ],
+    },
+  };
+
+  function renderExtended(ext) {
+    var html = '';
+
+    if (ext.synopsis) {
+      html += '<div class="overlay-ext-block">';
+      html += '<span class="overlay-ext-label">Synopsis</span>';
+      html += '<p class="overlay-ext-text">' + ext.synopsis + '</p>';
+      html += '</div>';
+    }
+
+    if (ext.statement && ext.statement.length) {
+      html += '<div class="overlay-ext-block">';
+      html += '<span class="overlay-ext-label">Director\'s Statement</span>';
+      html += '<div class="overlay-ext-body">';
+      html += ext.statement.map(function (p) {
+        return '<p class="overlay-ext-text">' + p + '</p>';
+      }).join('');
+      html += '</div></div>';
+    }
+
+    if (ext.credits && ext.credits.length) {
+      html += '<div class="overlay-ext-block">';
+      html += '<span class="overlay-ext-label">Credits</span>';
+      html += '<div class="overlay-credits">';
+      ext.credits.forEach(function (c) {
+        html += '<span class="overlay-credit-role">' + c.role + '</span>';
+        html += '<span class="overlay-credit-name">' + c.name + '</span>';
+      });
+      html += '</div></div>';
+    }
+
+    return html;
+  }
+
   // ─── OVERLAY ────────────────────────────────────────────────────
   function initOverlay() {
     $$('.project-card').forEach(function (card) {
@@ -175,6 +233,7 @@
     const videoWrap  = $('#overlay-video-wrap');
     const stillsEl   = $('#overlay-stills');
     const infoEl     = $('#overlay-info');
+    const extEl      = $('#overlay-extended');
 
     const title    = card.dataset.title    || '';
     const year     = card.dataset.year     || '';
@@ -185,6 +244,7 @@
     const vimeo    = card.dataset.vimeo    || '';
     const vimeoHash = card.dataset.vimeoHash || '';
     const stills   = card.dataset.stills ? card.dataset.stills.split('|') : [];
+    const slug     = card.dataset.slug     || '';
 
     // Video
     if (vimeo) {
@@ -223,6 +283,16 @@
       ${yearRow}${festivalRow}${loglineRow}
     `;
 
+    // Extended content
+    const ext = filmData[slug];
+    if (ext) {
+      extEl.innerHTML = renderExtended(ext);
+      extEl.style.display = '';
+    } else {
+      extEl.innerHTML = '';
+      extEl.style.display = 'none';
+    }
+
     document.body.style.overflow = 'hidden';
     overlay.classList.add('is-open');
     overlay.setAttribute('aria-hidden', 'false');
@@ -235,7 +305,10 @@
     overlay.classList.remove('is-open');
     overlay.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
-    setTimeout(function () { $('#overlay-video-wrap').innerHTML = ''; }, 350);
+    setTimeout(function () {
+      $('#overlay-video-wrap').innerHTML = '';
+      $('#overlay-extended').innerHTML = '';
+    }, 350);
   }
 
   // ─── FOOTER ─────────────────────────────────────────────────────
