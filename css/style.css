@@ -456,6 +456,14 @@ button { background: none; border: none; cursor: none; color: inherit; font: inh
   line-height: 1.5;
 }
 
+.award-year-sub {
+  font-family: var(--mono);
+  font-size: 0.42rem;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  opacity: 0.5;
+}
+
 .press-more-list,
 .awards-more-list {
   height: 0;
@@ -702,4 +710,6 @@ button { background: none; border: none; cursor: none; color: inherit; font: inh
 @media (max-width: 520px) {
   .films-grid { grid-template-columns: repeat(2, 1fr); gap: 8px; }
   .overlay-stills { grid-template-columns: 1fr; }
+  .card-title { flex: 0 0 100%; }
+  .card-badge { margin-left: 0; }
 }
