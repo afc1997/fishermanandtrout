@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fisherman &amp; Trout</title>
+  <meta name="description" content="Fisherman &amp; Trout — independent production company." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600&family=Space+Mono&display=swap" rel="stylesheet" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Cursor -->
+  <div class="cursor-dot"  id="cursor-dot"></div>
+  <div class="cursor-ring" id="cursor-ring"></div>
+
+  <!-- NAV -->
+  <nav class="site-nav" id="site-nav">
+    <a class="nav-logo" href="#top">
+      <img src="assets/logo/logo-nav.svg" alt="Fisherman &amp; Trout" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="#films">Films</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO — Vimeo background -->
+  <section class="hero" id="top">
+    <div class="hero-bg">
+      <iframe
+        src="https://player.vimeo.com/video/1169118938?h=5cb3db916b&background=1&autoplay=1&loop=1&muted=1&controls=0&autopause=0"
+        allow="autoplay; fullscreen"
+        frameborder="0"
+        title="Fisherman &amp; Trout"
+      ></iframe>
+    </div>
+    <div class="hero-overlay"></div>
+    <button class="scroll-arrow" aria-label="Scroll to films">
+      <svg width="16" height="22" viewBox="0 0 16 22" fill="none">
+        <path d="M8 0v18M1 11l7 7 7-7" stroke="currentColor" stroke-width="1"/>
+      </svg>
+    </button>
+  </section>
+
+  <!-- FILMS -->
+  <section class="films-section" id="films">
+    <p class="section-label">Films</p>
+
+    <!-- Completed -->
+    <div class="films-row">
+      <p class="films-row-label">Completed</p>
+      <div class="films-grid">
+
+        <article class="project-card"
+          data-title="¡PIKA!"
+          data-year="2026"
+          data-type="Short Film"
+          data-status="completed"
+          data-logline="[PIKA logline — to be added]"
+          data-festival="Sundance Film Festival 2026 · Sitges 2025"
+          data-vimeo="1034785756"
+          data-vimeo-hash="6a958389dd"
+          data-stills="assets/images/pika-still-1.jpg|assets/images/pika-still-2.jpg|assets/images/pika-still-3.jpg"
+          role="button" tabindex="0"
+        >
+          <div class="card-img-wrap">
+            <img class="card-img" src="assets/images/pika-poster.jpg" alt="¡PIKA!" />
+          </div>
+          <div class="card-meta">
+            <span class="card-title">¡PIKA!</span>
+            <span class="card-sub">2026 · Short Film</span>
+            <span class="card-badge badge-completed">Completed</span>
+          </div>
+        </article>
+
+        <article class="project-card"
+          data-title="Ovejas y Lobos"
+          data-year="2024"
+          data-type="Short Film"
+          data-status="completed"
+          data-logline="[Ovejas y Lobos logline — to be added]"
+          role="button" tabindex="0"
+        >
+          <div class="card-img-wrap">
+            <img class="card-img" src="assets/images/ovejas-card.jpg" alt="Ovejas y Lobos" loading="lazy" />
+          </div>
+          <div class="card-meta">
+            <span class="card-title">Ovejas y Lobos</span>
+            <span class="card-sub">2024 · Short Film</span>
+            <span class="card-badge badge-completed">Completed</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <!-- In Development -->
+    <div class="films-row">
+      <p class="films-row-label">In Development</p>
+      <div class="films-grid">
+
+        <article class="project-card"
+          data-title="Expansion"
+          data-type="Feature"
+          data-status="development"
+          data-logline="After the suicide of his famous architect father, Jonathan Cameron inherits his unfinished mansion. A place where the trauma of his past lures him into a nightmarish labyrinth built just for him."
+          role="button" tabindex="0"
+        >
+          <div class="card-img-wrap">
+            <img class="card-img" src="assets/images/expansion-card.jpg" alt="Expansion" loading="lazy" />
+          </div>
+          <div class="card-meta">
+            <span class="card-title">Expansion</span>
+            <span class="card-sub">Feature</span>
+            <span class="card-badge badge-dev">In Development</span>
+          </div>
+        </article>
+
+        <article class="project-card"
+          data-title="Deep Down"
+          data-type="Feature"
+          data-status="development"
+          data-logline="Amid the Scottish highlands, a drifter seeks shelter in a rotting village where a siren's call from the town's well drags him into obsession and terror."
+          role="button" tabindex="0"
+        >
+          <div class="card-img-wrap">
+            <img class="card-img" src="assets/images/deep-down-card.jpg" alt="Deep Down" loading="lazy" />
+          </div>
+          <div class="card-meta">
+            <span class="card-title">Deep Down</span>
+            <span class="card-sub">Feature</span>
+            <span class="card-badge badge-dev">In Development</span>
+          </div>
+        </article>
+
+        <article class="project-card"
+          data-title="The Itch"
+          data-type="Feature"
+          data-status="development"
+          data-logline="In a dystopian world, a weary pharmaceutical worker develops a strange rash, sending him on a nightmarish odyssey through corrupt corporations, terrorist uprisings, and mistaken identities as his desperate hunt for a banned itch cream spirals into madness."
+          role="button" tabindex="0"
+        >
+          <div class="card-img-wrap">
+            <img class="card-img" src="assets/images/the-itch-card.jpg" alt="The Itch" loading="lazy" />
+          </div>
+          <div class="card-meta">
+            <span class="card-title">The Itch</span>
+            <span class="card-sub">Feature</span>
+            <span class="card-badge badge-dev">In Development</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ON DECK -->
+  <section class="ondeck-section" id="on-deck">
+    <p class="section-label">On Deck</p>
+
+    <div class="ondeck-list">
+
+      <div class="ondeck-row" tabindex="0">
+        <span class="ondeck-num">01</span>
+        <span class="ondeck-title">Mr. Puffy</span>
+        <span class="ondeck-genre">Western</span>
+        <div class="ondeck-logline-wrap">
+          <span class="ondeck-logline">A disfigured old man hires a down-on-his-luck pony express driver and his wayward teenage son to carry him and his stolen treasure west to California — what begins as a simple ride spirals into a nightmarish journey of death, buffalo, and madness.</span>
+        </div>
+      </div>
+
+      <div class="ondeck-row" tabindex="0">
+        <span class="ondeck-num">02</span>
+        <span class="ondeck-title">Boshin War</span>
+        <span class="ondeck-genre">Period</span>
+        <div class="ondeck-logline-wrap">
+          <span class="ondeck-logline">As the sun sets on the samurai era, a drunken ronin escorts a Dutch prince across Japan as a year-long civil war tears the country in two.</span>
+        </div>
+      </div>
+
+      <div class="ondeck-row" tabindex="0">
+        <span class="ondeck-num">03</span>
+        <span class="ondeck-title">Thomas Gendering Hamilton</span>
+        <span class="ondeck-genre">Drama</span>
+        <div class="ondeck-logline-wrap">
+          <span class="ondeck-logline">When one of his children dies of the Spanish flu, a rational doctor becomes consumed by séances and the occult — convinced he can reach the other side, blind to the truth that he is not searching for his child at all.</span>
+        </div>
+      </div>
+
+      <div class="ondeck-row" tabindex="0">
+        <span class="ondeck-num">04</span>
+        <span class="ondeck-title">Visions of Gold</span>
+        <span class="ondeck-genre">Thriller</span>
+        <div class="ondeck-logline-wrap">
+          <span class="ondeck-logline">Chasing a vision of buried gold, a desperate vagrant drags an unlikely prophet five hundred miles into a heist that unravels faster than either of them can run.</span>
+        </div>
+      </div>
+
+      <div class="ondeck-row" tabindex="0">
+        <span class="ondeck-num">05</span>
+        <span class="ondeck-title">Shantytown</span>
+        <span class="ondeck-genre">Surreal</span>
+        <div class="ondeck-logline-wrap">
+          <span class="ondeck-logline">A lonely Lima factory worker falls asleep on the bus and wakes up in a desert shantytown where every attempt to get home pulls him deeper into chaos.</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <p class="section-label">About</p>
+    <div class="about-grid">
+      <div class="about-bio">
+        <p>Alex Fischman Cárdenas and Trout Cohen are a writer-director duo who met at a urinal on their first day at NYU. Since then, they've collaborated on narrative projects blending genre storytelling with surreal themes. Their work has earned Vimeo Staff Picks and screened at festivals such as Sundance, Clermont-Ferrand, Sitges, and AFI Fest.</p>
+      </div>
+      <div class="about-contact">
+        <p class="about-contact-label">Contact</p>
+        <a href="mailto:alex@fishermantrout.com" class="about-email">alex@fishermantrout.com</a>
+        <p class="about-phone">+1 (561) 412-8165</p>
+        <p class="about-management-label">Management</p>
+        <p class="about-management">Industry Entertainment</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <span class="footer-copy">&copy; <span id="footer-year"></span> Fisherman &amp; Trout</span>
+    <div class="footer-links">
+      <a href="https://vimeo.com/fishermanandtrout" target="_blank" rel="noopener">Vimeo</a>
+      <a href="https://instagram.com/fishermanandtrout" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </footer>
+
+  <!-- OVERLAY -->
+  <div class="overlay" id="project-overlay" role="dialog" aria-modal="true" aria-hidden="true">
+    <button class="overlay-close" id="overlay-close" aria-label="Close">&times;</button>
+    <div class="overlay-content">
+      <div class="overlay-video-wrap" id="overlay-video-wrap"></div>
+      <div class="overlay-stills" id="overlay-stills"></div>
+      <div class="overlay-info" id="overlay-info"></div>
+    </div>
+  </div>
+
+  <script src="js/main.js" defer></script>
+</body>
+</html>
